@@ -23,8 +23,6 @@
             padding-top: 40px;
             overflow-x: hidden;
             box-sizing: border-box;
-            
-            /* พื้นหลังผ้ากำมะหยี่เวทมนตร์ */
             background-color: #00076b;
             background-image: 
                 radial-gradient(circle at 50% 50%, rgba(120, 30, 160, 0.2) 0%, rgba(10, 0, 20, 0.9) 80%),
@@ -53,15 +51,27 @@
             display: flex; flex-direction: column; align-items: center; padding-top: 20px; box-sizing: border-box;
         }
         .gacha-sign { background: linear-gradient(135deg, #150050, #4a148c); border: 2px solid var(--secondary-color); border-radius: 10px; padding: 6px 25px; font-size: 16px; font-weight: bold; color: var(--secondary-color); text-shadow: 0 0 8px rgba(255, 179, 0, 0.8); box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,179,0,0.2); margin-bottom: 15px; }
-        .gacha-glass { width: 330px; height: 250px; background: rgba(255, 255, 255, 0.08); border: 3px solid rgba(255, 255, 255, 0.25); border-radius: 25px; position: relative; overflow: hidden; box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: flex-start; }
+        
+        .gacha-glass { 
+            width: 330px; height: 250px; background: rgba(255, 255, 255, 0.08); 
+            border: 3px solid rgba(255, 255, 255, 0.25); border-radius: 25px; 
+            position: relative; overflow: hidden; box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.15); 
+            display: flex; align-items: center; justify-content: flex-start; 
+        }
         
         .gacha-carousel { display: flex; width: max-content; animation: scrollLeft 25s linear infinite; }
         .carousel-track { display: flex; gap: 20px; padding-right: 20px; }
-        .carousel-card { width: 140px; height: 210px; background-color: #fff; background-size: cover; background-position: center; border: 3px solid rgba(255, 255, 255, 0.8); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.7); }
+        .carousel-card { width: 140px; height: 210px; background-color: #fff; background-size: cover; background-position: center; border: 3px solid rgba(255, 255, 255, 0.8); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.7); flex-shrink: 0; }
         @keyframes scrollLeft { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
 
-        .btn-spin { margin-top: 25px; padding: 12px 45px; font-size: 20px; background: linear-gradient(135deg, #ffb300, #ff8f00); color: #000; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 15px rgba(255, 179, 0, 0.4); transition: transform 0.2s, box-shadow 0.2s; }
-        .btn-spin:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 179, 0, 0.6); } .btn-spin:active { transform: scale(0.95); } .btn-spin:disabled { filter: grayscale(1); cursor: not-allowed; transform: none; }
+        .control-wrapper { display: flex; gap: 10px; align-items: center; margin-top: 25px; z-index: 10; }
+        .input-group { background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 30px; border: 1px solid var(--secondary-color); display: flex; align-items: center; gap: 8px; }
+        .input-group label { color: var(--secondary-color); font-weight: bold; font-size: 14px; }
+        .input-group input { width: 40px; background: transparent; border: none; color: white; font-size: 16px; font-weight: bold; text-align: center; outline: none; }
+        
+        .btn-spin { padding: 12px 30px; font-size: 18px; background: linear-gradient(135deg, #ffb300, #ff8f00); color: #000; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 15px rgba(255, 179, 0, 0.4); transition: transform 0.2s; }
+        .btn-spin:hover { transform: scale(1.05); } .btn-spin:active { transform: scale(0.95); }
+        .btn-spin:disabled { filter: grayscale(1); cursor: not-allowed; transform: none; }
 
         .gacha-chute-container { margin-top: auto; margin-bottom: 25px; position: relative; width: 160px; height: 85px; background: #07001f; border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 12px; box-shadow: inset 0 8px 15px rgba(0,0,0,0.9); overflow: hidden; }
         .gacha-slot { width: 100px; height: 6px; background: #000; margin: 0 auto; border-radius: 3px; margin-top: 5px; }
@@ -87,8 +97,26 @@
         .flipped { transform: rotateY(180deg) scale(1.1) !important; z-index: 10; box-shadow: 0 30px 40px rgba(0,0,0,0.8); }
         .disabled-card { opacity: 0.3; pointer-events: none; transition: opacity 0.5s; filter: grayscale(50%); }
 
-        .btn-shuffle { margin-top: 30px; padding: 12px 35px; font-size: 18px; background: linear-gradient(135deg, #ffb300, #ff8f00); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 179, 0, 0.4); transition: transform 0.2s, box-shadow 0.2s; z-index: 2; }
-        .btn-shuffle:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 179, 0, 0.6); } .btn-shuffle:active { transform: scale(0.95); }
+        .btn-shuffle { margin-top: 30px; padding: 12px 35px; font-size: 18px; background: linear-gradient(135deg, #ffb300, #ff8f00); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 179, 0, 0.4); transition: transform 0.2s; z-index: 2; }
+        .btn-shuffle:hover { transform: scale(1.05); }
+
+        /* ======================================================= */
+        /* CSS ปุ่ม Skip ข้ามอนิเมชัน */
+        /* ======================================================= */
+        .skip-checkbox-container {
+            position: fixed; bottom: 20px; right: 20px;
+            background: rgba(5, 0, 35, 0.85); padding: 10px 20px;
+            border-radius: 30px; border: 2px solid var(--secondary-color);
+            z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+        .skip-checkbox-container label {
+            display: flex; align-items: center; gap: 8px;
+            color: var(--secondary-color); font-weight: bold;
+            cursor: pointer; font-size: 15px; user-select: none;
+        }
+        .skip-checkbox-container input[type="checkbox"] {
+            width: 18px; height: 18px; accent-color: var(--secondary-color); cursor: pointer;
+        }
 
         /* ======================================================= */
         /* CSS Modal และ Effects */
@@ -98,16 +126,19 @@
         #modalBg { position: absolute; inset: 0; background-color: rgba(5, 0, 20, 0.9); backdrop-filter: blur(8px); }
         #impactFrame { position: absolute; inset: 0; pointer-events: none; z-index: 110; }
         #particlesContainer { position: absolute; inset: 0; pointer-events: none; z-index: 105; }
+        
         #openingContainer { position: relative; flex-direction: column; align-items: center; justify-content: center; z-index: 108; width: 100%; height: 100%; }
         #boxAnimContainer { position: relative; width: 200px; height: 320px; }
         #boxAura { position: absolute; inset: 0; border-radius: 16px; filter: blur(25px); opacity: 0; transition: opacity 0.5s; }
         #animBoxImg { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border: 2px solid #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.8); }
-        #resultContainer { position: relative; z-index: 120; width: 100%; padding: 20px; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
-        #fullCardReveal { position: relative; width: 320px; height: 480px; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: auto; background: transparent; border: none; box-shadow: none; }
-        #resultImg { position: relative; z-index: 10; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8)); border-radius: 24px; animation: breatheCard 3.5s ease-in-out infinite; }
+        
+        #resultContainer { position: relative; z-index: 120; width: 100%; max-width: 950px; padding: 20px; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
+        #multipleResults { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; pointer-events: auto; }
+        .result-card-item { width: 160px; height: 240px; animation: breatheCard 3.5s ease-in-out infinite; }
+        .result-card-item img { width: 100%; height: 100%; object-fit: contain; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.8); filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8)); }
 
         @keyframes breatheCard { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
-        #resultText { font-size: 40px; color: #fff; text-align: center; margin-top: 30px; margin-bottom: 30px; pointer-events: auto; text-shadow: 0 2px 10px var(--secondary-color), 0 4px 20px rgba(0,0,0,0.8); font-weight: bold; }
+        #resultText { font-size: 32px; color: #fff; text-align: center; margin-top: 30px; margin-bottom: 30px; pointer-events: auto; text-shadow: 0 2px 10px var(--secondary-color), 0 4px 20px rgba(0,0,0,0.8); font-weight: bold; line-height: 1.4; }
         .modal-btn { background: linear-gradient(135deg, #ffb300, #ff8f00); color: #000; font-size: 22px; padding: 12px 40px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; pointer-events: auto; box-shadow: 0 4px 15px rgba(255, 179, 0, 0.5); transition: transform 0.2s; }
         .modal-btn:hover { transform: scale(1.05); }
 
@@ -125,6 +156,12 @@
 <body>
 
     <div id="magic-particles"></div>
+
+    <div class="skip-checkbox-container">
+        <label>
+            <input type="checkbox" id="skip-animate-check"> ⚡ ข้ามอนิเมชัน
+        </label>
+    </div>
 
     <div class="mode-selector">
         <button class="btn-mode active" id="mode-gacha-btn" onclick="switchMode('gacha')">🎰 โหมดตู้กาชาปอง</button>
@@ -158,7 +195,15 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-spin" id="spin-btn" onclick="spinGacha()">✨ จุ่มการ์ด 1 ใบ ✨</button>
+            
+            <div class="control-wrapper">
+                <div class="input-group">
+                    <label>จำนวน:</label>
+                    <input type="number" id="draw-count" min="1" max="5" value="1" onchange="if(this.value<1)this.value=1;if(this.value>5)this.value=5;">
+                </div>
+                <button class="btn-spin" id="spin-btn" onclick="spinGacha()">✨ จุ่มการ์ด ✨</button>
+            </div>
+
             <div class="gacha-chute-container">
                 <div class="gacha-slot"></div>
                 <div class="dropped-card" id="dropped-card"></div>
@@ -177,16 +222,17 @@
         <div id="modalBg"></div>
         <div id="impactFrame" class="hidden"></div>
         <div id="particlesContainer"></div>
+        
         <div id="openingContainer" class="flex">
             <div id="boxAnimContainer">
                 <div id="boxAura" style="--aura-color: #ffb300;"></div>
                 <img id="animBoxImg" src="image/card-back.png" alt="Card Back"/>
             </div>
         </div>
+        
         <div id="resultContainer" class="hidden">
-            <div id="fullCardReveal">
-                <img id="resultImg" src="" alt="Reward"/>
-            </div>
+            <div id="multipleResults">
+                </div>
             <h3 id="resultText">ชื่อรางวัล</h3>
             <button class="modal-btn" onclick="closeSequenceModal()">รับรางวัล!</button>
         </div>
@@ -196,22 +242,21 @@
         // ==========================================
         // 🎵 โหลดไฟล์เสียง (Audio Elements)
         // ==========================================
-        const sfxClick = new Audio('audio/click.mp3');     // เสียงกดปุ่ม
-        const sfxDrop = new Audio('audio/drop.mp3');       // เสียงการ์ดหล่นจากตู้
-        const sfxFlip = new Audio('audio/flip.mp3');       // เสียงพลิกการ์ดบนกระดาน
-        const sfxReveal = new Audio('audio/reveal.mp3');   // เสียงเอฟเฟกต์ระเบิดเปิดการ์ด
-
-        // ==========================================
+        const sfxClick = new Audio('audio/click.mp3');     
+        const sfxDrop = new Audio('audio/drop.mp3');       
+        const sfxFlip = new Audio('audio/flip.mp3');       
+        const sfxReveal = new Audio('audio/reveal.mp3');   
 
         let deck = [
-            { id: 1, name: "บวก 50 คะแนน", img: "image/50.png", rate: 10 },
-            { id: 2, name: "บวก 100 คะแนน", img: "image/100.png", rate: 6 },
-            { id: 3, name: "บวก 150 คะแนน", img: "image/150.png", rate: 5 },
-            { id: 4, name: "เกลือ", img: "image/nothing.png", rate: 12 },
-            { id: 5, name: "ลูกอม", img: "image/poppy.png", rate: 5 },
+            { id: 1, name: "บวก 50 คะแนน", img: "image/50.png", rate: 20 },
+            { id: 2, name: "บวก 100 คะแนน", img: "image/100.png", rate: 15 },
+            { id: 3, name: "บวก 150 คะแนน", img: "image/150.png", rate: 10 },
+            { id: 4, name: "เกลือ", img: "image/nothing.png", rate: 40 },
+            { id: 5, name: "ลูกอม", img: "image/poppy.png", rate: 6 },
             { id: 6, name: "รางวัลใหญ่!", img: "image/reward.png", rate: 0.25 },
-            { id: 7, name: "ขนม", img: "image/sweet.png", rate: 3 },
-            { id: 8, name: "ปากกา", img: "image/pen.png", rate: 2 }
+            { id: 7, name: "ขนม", img: "image/sweet.png", rate: 4 },
+            { id: 8, name: "ปากกา", img: "image/pen.png", rate: 4 }
+
         ];
 
         let currentMode = 'gacha';
@@ -233,7 +278,6 @@
             const gachaBtn = document.getElementById('mode-gacha-btn');
             const manualBtn = document.getElementById('mode-manual-btn');
 
-            // 🎵 เล่นเสียงปุ่มคลิกเวลาเปลี่ยนโหมด
             sfxClick.currentTime = 0; 
             sfxClick.play().catch(e => console.log("Audio play blocked by browser"));
 
@@ -273,7 +317,6 @@
         }
 
         function shuffleCards() {
-            // 🎵 เล่นเสียงปุ่มคลิกเมื่อกดปุ่มสับการ์ดใหม่
             sfxClick.currentTime = 0; 
             sfxClick.play().catch(e => console.log("Audio blocked"));
 
@@ -337,45 +380,62 @@
             document.getElementById(`reveal-img-${index}`).src = drawnCard.img;
             selectedElement.classList.add('flipped');
 
-            // 🎵 เล่นเสียงพลิกการ์ดบนกระดาน
             sfxFlip.currentTime = 0; 
             sfxFlip.play().catch(e => console.log("Audio blocked"));
 
-            setTimeout(() => { startModalSequence(drawnCard); }, 300);
+            // ส่งเป็น Array เพราะฟังก์ชันรองรับการสุ่มหลายใบแล้ว
+            setTimeout(() => { startModalSequence([drawnCard]); }, 300);
         }
 
         function spinGacha() {
             const btn = document.getElementById('spin-btn');
             const machine = document.getElementById('gacha-machine');
             const droppedCard = document.getElementById('dropped-card');
+            const countInput = document.getElementById('draw-count');
+            const isSkip = document.getElementById('skip-animate-check').checked;
 
-            // 🎵 เล่นเสียงปุ่มกดหน้าตู้จุ่ม
+            let count = parseInt(countInput.value) || 1;
+            if(count > 5) count = 5;
+            if(count < 1) count = 1;
+
             sfxClick.currentTime = 0; 
             sfxClick.play().catch(e => console.log("Audio blocked"));
 
-            btn.disabled = true; btn.innerText = "กำลังจุ่ม...";
-            machine.classList.add('anim-shake');
+            btn.disabled = true; 
+            btn.innerText = "กำลังจุ่ม...";
 
-            const drawnCard = getRandomCard();
+            // สุ่มการ์ดตามจำนวน
+            let drawnCards = [];
+            for(let i = 0; i < count; i++) {
+                drawnCards.push(getRandomCard());
+            }
 
-            // จังหวะที่ตู้สั่นเสร็จ และการ์ดกำลังจะหล่น
-            setTimeout(() => {
-                machine.classList.remove('anim-shake');
-                
-                // 🎵 เล่นเสียงการ์ดหล่นลงมา
-                sfxDrop.currentTime = 0; 
-                sfxDrop.play().catch(e => console.log("Audio blocked"));
-
-                droppedCard.classList.add('anim-drop');
-
+            // ถ้ากดข้ามอนิเมชัน ให้ไปโชว์ผลลัพธ์ทันที
+            if(isSkip) {
+                startModalSequence(drawnCards);
+                btn.disabled = false; 
+                btn.innerText = "✨ จุ่มการ์ด ✨";
+            } else {
+                // อนิเมชันตู้สั่นปกติ
+                machine.classList.add('anim-shake');
                 setTimeout(() => {
-                    startModalSequence(drawnCard);
+                    machine.classList.remove('anim-shake');
+                    
+                    sfxDrop.currentTime = 0; 
+                    sfxDrop.play().catch(e => console.log("Audio blocked"));
+
+                    droppedCard.classList.add('anim-drop');
+
                     setTimeout(() => {
-                        droppedCard.classList.remove('anim-drop');
-                        btn.disabled = false; btn.innerText = "✨ จุ่มการ์ด 1 ใบ ✨";
-                    }, 500);
-                }, 1000);
-            }, 1500);
+                        startModalSequence(drawnCards);
+                        setTimeout(() => {
+                            droppedCard.classList.remove('anim-drop');
+                            btn.disabled = false; 
+                            btn.innerText = "✨ จุ่มการ์ด ✨";
+                        }, 500);
+                    }, 1000);
+                }, 1500);
+            }
         }
 
         function createMagicParticles() {
@@ -416,47 +476,87 @@
             }
         }
 
-        function startModalSequence(drawnCard) {
-            const modal = document.getElementById('sequenceModal'); const openingContainer = document.getElementById('openingContainer');
-            const boxAnimContainer = document.getElementById('boxAnimContainer'); const boxAura = document.getElementById('boxAura');
-            const impactFrame = document.getElementById('impactFrame'); const resultContainer = document.getElementById('resultContainer');
-            const fullCardReveal = document.getElementById('fullCardReveal');
+        function startModalSequence(drawnCardsArray) {
+            const modal = document.getElementById('sequenceModal'); 
+            const openingContainer = document.getElementById('openingContainer');
+            const boxAnimContainer = document.getElementById('boxAnimContainer'); 
+            const boxAura = document.getElementById('boxAura');
+            const impactFrame = document.getElementById('impactFrame'); 
+            const resultContainer = document.getElementById('resultContainer');
+            const multipleResults = document.getElementById('multipleResults');
+            const isSkip = document.getElementById('skip-animate-check').checked;
             
             modal.classList.remove('hidden'); modal.classList.add('flex');
-            openingContainer.classList.remove('hidden'); openingContainer.classList.add('flex');
-            resultContainer.classList.remove('flex'); resultContainer.classList.add('hidden');
-            fullCardReveal.classList.remove('anim-burst'); boxAnimContainer.classList.remove('anim-shake');
+            
+            // ล้างหน้าการ์ดเดิมออกก่อน
+            multipleResults.innerHTML = '';
+            multipleResults.classList.remove('anim-burst');
+            boxAnimContainer.classList.remove('anim-shake');
             impactFrame.classList.remove('anim-impact'); impactFrame.classList.add('hidden');
             document.getElementById('particlesContainer').innerHTML = '';
-            
-            boxAura.style.opacity = '1'; boxAura.style.animation = 'aura-pulse 1.5s infinite alternate';
-            void boxAnimContainer.offsetWidth; boxAnimContainer.classList.add('anim-shake');
 
-            // จังหวะที่ออร่าพุ่งและจอขาวสว่างวาบ (วินาทีที่ 1.4)
-            setTimeout(() => {
+            // ถ้านักเรียนกดปุ่ม Skip ให้ข้ามไปแสดงการ์ดรางวัลทันที
+            if (isSkip) {
+                openingContainer.classList.remove('flex'); openingContainer.classList.add('hidden');
                 
-                // 🎵 เล่นเสียงระเบิดตอนเปิดการ์ดโชว์รางวัล
+                let names = [];
+                drawnCardsArray.forEach(card => {
+                    names.push(card.name);
+                    let div = document.createElement('div');
+                    div.className = 'result-card-item';
+                    div.innerHTML = `<img src="${card.img}" alt="${card.name}">`;
+                    multipleResults.appendChild(div);
+                });
+                
+                document.getElementById('resultText').innerHTML = `คุณได้:<br>${names.join(' , ')}`;
+                resultContainer.classList.remove('hidden'); resultContainer.classList.add('flex');
+                
+                // เล่นเสียงโชว์รางวัลทันที
                 sfxReveal.currentTime = 0; 
                 sfxReveal.play().catch(e => console.log("Audio blocked"));
-
-                impactFrame.classList.remove('hidden'); void impactFrame.offsetWidth; impactFrame.classList.add('anim-impact');
-                createExplosionParticles(); boxAnimContainer.style.opacity = '0'; boxAura.style.animation = 'none';
-            }, 1400); 
-
-            // จังหวะโชว์การ์ดรางวัลเต็มหน้าจอ
-            setTimeout(() => {
-                impactFrame.classList.add('hidden'); openingContainer.classList.remove('flex'); openingContainer.classList.add('hidden');
-                boxAnimContainer.style.opacity = '1'; 
                 
-                document.getElementById('resultImg').src = drawnCard.img; document.getElementById('resultText').innerText = `คุณได้: ${drawnCard.name}`;
+                void multipleResults.offsetWidth; multipleResults.classList.add('anim-burst');
+                
+            } else {
+                // ถ้าไม่ได้กด Skip ให้เล่นอนิเมชันเปิดกล่องตามปกติ
+                openingContainer.classList.remove('hidden'); openingContainer.classList.add('flex');
+                resultContainer.classList.remove('flex'); resultContainer.classList.add('hidden');
+                
+                boxAura.style.opacity = '1'; boxAura.style.animation = 'aura-pulse 1.5s infinite alternate';
+                void boxAnimContainer.offsetWidth; boxAnimContainer.classList.add('anim-shake');
 
-                resultContainer.classList.remove('hidden'); resultContainer.classList.add('flex');
-                void fullCardReveal.offsetWidth; fullCardReveal.classList.add('anim-burst');
-            }, 1700);
+                // จังหวะที่ออร่าพุ่งและจอขาวสว่างวาบ 
+                setTimeout(() => {
+                    sfxReveal.currentTime = 0; 
+                    sfxReveal.play().catch(e => console.log("Audio blocked"));
+
+                    impactFrame.classList.remove('hidden'); void impactFrame.offsetWidth; impactFrame.classList.add('anim-impact');
+                    createExplosionParticles(); boxAnimContainer.style.opacity = '0'; boxAura.style.animation = 'none';
+                }, 1400); 
+
+                // จังหวะโชว์การ์ดรางวัล
+                setTimeout(() => {
+                    impactFrame.classList.add('hidden'); openingContainer.classList.remove('flex'); openingContainer.classList.add('hidden');
+                    boxAnimContainer.style.opacity = '1'; 
+                    
+                    let names = [];
+                    drawnCardsArray.forEach(card => {
+                        names.push(card.name);
+                        let div = document.createElement('div');
+                        div.className = 'result-card-item';
+                        div.innerHTML = `<img src="${card.img}" alt="${card.name}">`;
+                        multipleResults.appendChild(div);
+                    });
+                    
+                    document.getElementById('resultText').innerHTML = `คุณได้:<br>${names.join(' , ')}`;
+
+                    resultContainer.classList.remove('hidden'); resultContainer.classList.add('flex');
+                    void multipleResults.offsetWidth; multipleResults.classList.add('anim-burst');
+                }, 1700);
+            }
         }
 
         function closeSequenceModal() {
-            // 🎵 เล่นเสียงปุ่มรับรางวัล
             sfxClick.currentTime = 0; 
             sfxClick.play().catch(e => console.log("Audio blocked"));
 
